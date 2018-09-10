@@ -1,6 +1,7 @@
 package com.example.eldho.toolbarsample;
 
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -13,9 +14,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         /**ToolBar the xml code also present*/
-        mainToolbar = findViewById(R.id.main_toolbar);
+        mainToolbar = findViewById(R.id.toolbar_main);
         setSupportActionBar(mainToolbar);
-        getSupportActionBar().setTitle("Photo Blog");
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Photo Blog");
+//        NOTE: check manifest
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // For back arrow on toolbar
+        }
     }
 
     /** Create Menu */
@@ -30,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){ // get the ID
+            case android.R.id.home:  // For Back Navigation
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
             case R.id.action_logout_btn:
                 //Code inside the logout menu button starts here
 
