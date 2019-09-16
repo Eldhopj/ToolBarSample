@@ -1,10 +1,11 @@
 package com.example.eldho.toolbarsample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Photo Blog");
-//        NOTE: check manifest
+
             getSupportActionBar().setDisplayHomeAsUpEnabled(true); // For back arrow on toolbar
             getSupportActionBar().setDisplayShowHomeEnabled(true);
+            //NOTE: for backButton action we have to define parent activity in manifest, check manifest
         }
     }
 
